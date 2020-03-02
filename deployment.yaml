@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: button
-        image: gcr.io/deployments-demo/button:blue
+        image: gcr.io/deployments-demo/button:green
         ports:
           - containerPort: 3000
             name: http
