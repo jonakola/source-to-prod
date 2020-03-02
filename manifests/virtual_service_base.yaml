@@ -1,0 +1,24 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: button-gateway-vs
+  namespace: prod
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - button-gateway
+  http:
+    - route:
+      - destination:
+          host: button-service.prod.svc.cluster.local
+          subset: green
+          port:
+            number: 80
+        weight: 0
+      - destination:
+          host: button-service.prod.svc.cluster.local
+          subset: blue
+          port: 
+            number: 80
+        weight: 100

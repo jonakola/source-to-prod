@@ -1,21 +1,23 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: button
+  name: button-blue
   namespace: prod
 spec:
   selector:
     matchLabels:
       app: button
+      tag: blue
   replicas: 3
   template:
     metadata:
       labels:
         app: button
+        tag: blue
     spec:
       containers:
       - name: button
-        image: gcr.io/deployments-demo/button:green
+        image: gcr.io/deployments-demo/button:blue
         ports:
           - containerPort: 3000
             name: http

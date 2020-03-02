@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: button-green
+  namespace: prod
+spec:
+  selector:
+    matchLabels:
+      app: button
+      tag: green
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: button
+        tag: green
+    spec:
+      containers:
+      - name: button
+        image: gcr.io/deployments-demo/button:green
+        ports:
+          - containerPort: 3000
+            name: http
+            protocol: TCP
