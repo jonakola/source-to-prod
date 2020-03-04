@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: button-blue
+  namespace: prod
+spec:
+  selector:
+    matchLabels:
+      app: button
+      tag: blue
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: button
+        tag: blue
+    spec:
+      containers:
+      - name: button
+        image: gcr.io/deployments-demo/button:blue
+        ports:
+          - containerPort: 3000
+            name: http
+            protocol: TCP
+  strategy:
+    canary:
+      steps:
+      - setWeight: 20
+      - pause:
+          duration: 10
