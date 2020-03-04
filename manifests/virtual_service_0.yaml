@@ -15,10 +15,10 @@ spec:
           subset: green
           port:
             number: 80
-        weight: 100
+        weight: 0
       - destination:
           host: button-service.prod.svc.cluster.local
           subset: blue
           port: 
             number: 80
-        weight: 0
+        weight: 100

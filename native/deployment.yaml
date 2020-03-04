@@ -10,12 +10,12 @@ spec:
   replicas: 6
   strategy:
     rollingUpdate:
-      maxUnavailable: 25%
-      maxSurge: 0
+      maxUnavailable: 0
+      maxSurge: 6
   template:
     metadata:
       annotations:
-        kubernetes.io/change-cause: "Initial Deployment"
+        kubernetes.io/change-cause: "Changed this to green"
       labels:
         app: button
     spec:

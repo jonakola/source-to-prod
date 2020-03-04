@@ -8,7 +8,7 @@ spec:
     matchLabels:
       app: button
       tag: blue
-  replicas: 3
+  replicas: 4
   template:
     metadata:
       labels:
