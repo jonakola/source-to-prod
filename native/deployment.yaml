@@ -15,7 +15,7 @@ spec:
   template:
     metadata:
       annotations:
-        kubernetes.io/change-cause: "Initial"
+        kubernetes.io/change-cause: "Initial Deployment"
       labels:
         app: button
     spec:
